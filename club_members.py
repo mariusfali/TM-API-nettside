@@ -1,6 +1,6 @@
 import requests, json
 
-with open("account_ids.txt", "r", encoding="utf-8") as f:
+with open("databasetest.txt", "r", encoding="utf-8") as f:
     data = f.readlines()
     live_token = "eyJhbGciOiJIUzI1NiIsImVudiI6InRyYWNrbWFuaWEtcHJvZCIsInZlciI6IjEifQ.eyJqdGkiOiJlYWYxMDM2ZS1kODE1LTExZWYtOWNmYi0wMmQyZDkzYWYwNGQiLCJpc3MiOiJOYWRlb1NlcnZpY2VzIiwiaWF0IjoxNzM3NDc3NDExLCJyYXQiOjE3Mzc0NzkyMTEsImV4cCI6MTczNzQ4MTAxMSwiYXVkIjoiTmFkZW9MaXZlU2VydmljZXMiLCJ1c2ciOiJDbGllbnQiLCJzaWQiOiJlYWYwZmZmZS1kODE1LTExZWYtOTg2Ni0wMmQyZDkzYWYwNGQiLCJzYXQiOjE3Mzc0Nzc0MTEsInN1YiI6IjUxZDhmZGE0LWVjOTAtNDY0NC04NzJhLWMwMmMzMjZjZjUyMiIsImF1biI6IkFuZHliYWNvZGUiLCJydGsiOmZhbHNlLCJwY2UiOmZhbHNlLCJ1YmlzZXJ2aWNlc191aWQiOiJmZmY4Njk1NC02ZmE2LTQ5ODgtYTdhZi00ODc3MDYzYmIzMTgifQ.FVRvG9sflF6_QkDFIDW26uF4k7Hy4hXaelnePERTCeQ"
     for i in range(0,1):
