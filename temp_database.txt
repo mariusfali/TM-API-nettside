@@ -1,0 +1,1 @@
+{23: {'Andybaguette': 48.948, 'ASweatyToe': 49.242, 'FlameCasterTM': 49.365, 'LANGEMANN._.TM': 49.552, 'rampen88': 49.618}, 22: {'abeadPCGamer': 41.2, 'rampen88': 41.206, 'IvernomBaguette': 41.275, 'FlameCasterTM': 41.28, 'ASweatyToe': 41.342}, 21: {'IvernomBaguette': 58.334, 'Andybaguette': 58.678, 'LANGEMANN._.TM': 59.544, 'ASweatyToe': 59.687, 'Smileyb0b.': 59.728}}
