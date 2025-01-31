@@ -1,4 +1,1 @@
-fetch('./temp_database.txt')
-    .then(response => response.text())
-    .then(text => console.log(text))
-
+// Denne siden er spesifikt til annen type funksjoner enn firebase greiene, de må ligge i HTML fila

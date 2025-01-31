@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+    padding: 2%;
+}
+#leaderboard{
+    justify-items: center;
+}
+#leaderboard-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 90%;
+}
+#leaderboard-data{
+    padding-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 90%;
+}
+#wrapper{
+    width: 80%;
+    margin: auto;
+    background-color: antiquewhite;
+    padding: 3%;
+}
+
+
+/* Rankings-classes */
+#ranking{
+    
+}
+.first-rank{
+    background-color: gold;
+    border-radius: 40%;
+}
+.second-rank{
+    background-color: silver;
+    border-radius: 40%;
+}
+.third-rank{
+    background-color: brown;
+    border-radius: 40%;
+}
+.normal-rank{
+    background-color: aquamarine;
+    border-radius: 40%;
+}
