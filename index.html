@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" id="html-body">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Index</title>
         <link rel="stylesheet" href="style.css">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     </head>
-    <body>
+    <body class="container">
+        <div id="mode-switch-container">
+            <button id="mode-switch" class="outline contrast">Dark mode</button>
+        </div>
         <h1>Crashmania TOTD leaderboard</h1>
         <div id="wrapper">
             <br><br>
-            <select name="totd-months" id="months">
-                <option value="january">January</option>
-            </select>
-            <select name="totd-dates" id="dates"></select>
-            <br><br><br><br><br>
-            <div id="leaderboard">
+            <div id="selectors">
+                <select name="totd-months" id="months">
+                    <option value="january">January</option>
+                </select>
+                <select name="totd-dates" id="dates"></select>
+            </div>
+            <br>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Player</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="table-data">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div id="leaderboard">
                 <div id="leaderboard-header">
                     <div>Ranking</div>
                     <div>Player</div>
@@ -26,11 +50,11 @@
                     <div id="player"></div>
                     <div id="time"></div>
                 </div>
-            </div>
+            </div> -->
         </div>  
         
         
-
+        <br><br><br>
     </body>
     
     <script src="funksjonalitet.js"></script>
@@ -80,12 +104,14 @@
         let dates = document.getElementById("dates")
         dates.addEventListener("click", activating_correct_date)
         
-        let leaderboard = document.getElementById("leaderboard")
-        let ranking = document.getElementById("ranking")
-        let player = document.getElementById("player")
-        let time = document.getElementById("time")
-        let leaderboard_header = document.getElementById("leaderboard-header")
-        let leaderboard_data = document.getElementById("leaderboard-data")
+        //let leaderboard = document.getElementById("leaderboard")
+        //let ranking = document.getElementById("ranking")
+        //let player = document.getElementById("player")
+        //let time = document.getElementById("time")
+        //let leaderboard_header = document.getElementById("leaderboard-header")
+        //let leaderboard_data = document.getElementById("leaderboard-data")
+        let leaderboard_table = document.getElementById("leaderboard-table")
+        let table_data = document.getElementById("table-data")
         
 
         
@@ -125,37 +151,68 @@
         function create_corresponding_leaderboard(totd_info) {
             //console.log(totd_info)
             //let new_element = document.createElement("div")
-            player.innerText = ""
-            time.innerText = ""
-            ranking.innerText = ""
+
+            //player.innerText = ""
+            //time.innerText = ""
+            //ranking.innerText = ""
+            table_data.innerHTML = ""
             for (let i = 0; i < 5; i++){
                 let specific_ranking = totd_info[i]
                 specific_ranking = specific_ranking.split(":")
                 specific_ranking[0] = specific_ranking[0].trim()
 
-                let newPlayer = document.createElement("div")
-                newPlayer.innerText = specific_ranking[0].substring(1, specific_ranking[0].length-1)
-                newPlayer.classList.add("leaderboard-player")
-                player.appendChild(newPlayer)
+                let new_table_row = document.createElement("tr")
 
-                let newTime = document.createElement("div")
-                newTime.innerText = specific_ranking[1].substring(2, specific_ranking[1].length-1)
-                newTime.classList.add("leaderboard-time")
-                time.appendChild(newTime)
-
-                let newRanking = document.createElement("div")
-                newRanking.innerText = i+1
-                newRanking.classList.add("leaderboard-ranking")
-                if (i+1 === 1){
-                    newRanking.classList.add("first-rank")
-                } else if (i+1 === 2){
-                    newRanking.classList.add("second-rank")
-                } else if (i+1 === 3){
-                    newRanking.classList.add("third-rank")
-                } else{
-                    newRanking.classList.add("normal-rank")
+                let new_table_ranking = document.createElement("td")
+                new_table_ranking.innerText = i+1
+                new_table_ranking.style.fontSize = "16px"
+                if (i == 0){
+                    new_table_ranking.style.color = "gold"
+                    new_table_ranking.style.fontSize = "30px"
+                } else if (i == 1){
+                    new_table_ranking.style.color = "silver"
+                    new_table_ranking.style.fontSize = "26px"
+                } else if (i == 2){
+                    new_table_ranking.style.color = "brown"
+                    new_table_ranking.style.fontSize = "22px"
                 }
-                ranking.appendChild(newRanking)
+                new_table_row.append(new_table_ranking)
+
+                let new_table_player = document.createElement("td")
+                new_table_player.innerText = specific_ranking[0].substring(1, specific_ranking[0].length-1)
+                new_table_row.append(new_table_player)
+
+                let new_table_time = document.createElement("td")
+                new_table_time.innerText = specific_ranking[1].substring(2, specific_ranking[1].length-1)
+                new_table_row.append(new_table_time)
+                
+
+                table_data.append(new_table_row)
+
+                // let newPlayer = document.createElement("div")
+                // newPlayer.innerText = specific_ranking[0].substring(1, specific_ranking[0].length-1)
+                // newPlayer.classList.add("leaderboard-player")
+                // player.appendChild(newPlayer)
+
+                // let newTime = document.createElement("div")
+                // newTime.innerText = specific_ranking[1].substring(2, specific_ranking[1].length-1)
+                // newTime.classList.add("leaderboard-time")
+                // time.appendChild(newTime)
+
+                // let newRanking = document.createElement("div")
+                // newRanking.innerText = i+1
+                // newRanking.classList.add("leaderboard-ranking")
+                // if (i+1 === 1){
+                //     newRanking.classList.add("first-rank")
+                // } else if (i+1 === 2){
+                //     newRanking.classList.add("second-rank")
+                // } else if (i+1 === 3){
+                //     newRanking.classList.add("third-rank")
+                // } else{
+                //     newRanking.classList.add("normal-rank")
+                // }
+                // ranking.appendChild(newRanking)
+
                 // let new_list_point = document.createElement("li")
                 // let specific_ranking = totd_info[i]
                 // specific_ranking = specific_ranking.split(":")

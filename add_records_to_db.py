@@ -38,7 +38,7 @@ for i in range(current_day,29,-1): # Hvilke datoer som skal skaffes
             totd_uid = j["mapUid"]
 
 
-    amountOfPlayers = 5
+    amountOfPlayers = 10
     player = requests.get(f'https://live-services.trackmania.nadeo.live/api/token/leaderboard/group/Personal_Best/map/{totd_uid}/club/38508/top?length={amountOfPlayers}&offset=0', headers={'Authorization':f'nadeo_v1 t={live_token}'})
     #print(player.text)
     leaderboard_data = json.loads(player.content.decode("utf-8"))

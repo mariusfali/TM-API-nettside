@@ -1,8 +1,7 @@
 h1{
     text-align: center;
-    padding: 2%;
 }
-#leaderboard{
+/* #leaderboard{
     justify-items: center;
 }
 #leaderboard-header{
@@ -10,24 +9,36 @@ h1{
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     width: 90%;
-}
+    }
 #leaderboard-data{
     padding-top: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     width: 90%;
-}
-#wrapper{
+} */
+/* #wrapper{
     width: 80%;
     margin: auto;
     background-color: antiquewhite;
     padding: 3%;
+    } */
+#leaderboard-table{
+    width: 70%;
+    margin: auto;
+}
+#mode-switch-container{
+    display: flex;
+    justify-content: right;
+    margin-top: 2%;
+}
+#selectors{
+    width: 20%;
 }
 
 
 /* Rankings-classes */
-#ranking{
+/* #ranking{
     
 }
 .first-rank{
@@ -45,4 +56,4 @@ h1{
 .normal-rank{
     background-color: aquamarine;
     border-radius: 40%;
-}
+} */
