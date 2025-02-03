@@ -19,7 +19,7 @@ oauth_token = get_oauth_token()
 
 
 
-current_totd = requests.get('https://live-services.trackmania.nadeo.live/api/token/campaign/month?length=1', headers={'Authorization':f'nadeo_v1 t={live_token}'})
+current_totd = requests.get('https://live-services.trackmania.nadeo.live/api/token/campaign/month?length=2', headers={'Authorization':f'nadeo_v1 t={live_token}'})
 totd_info = json.loads(current_totd.content.decode("utf-8"))
 
 
@@ -29,11 +29,11 @@ else:
     current_day = (datetime.datetime.now()).day
 
 
-
+#current_day+1
 totd_records = {}
-for i in range(current_day,29,-1): # Hvilke datoer som skal skaffes
+for i in range(2,current_day+1): # Hvilke datoer som skal skaffes
     
-    for j in totd_info["monthList"][0]["days"]:
+    for j in totd_info["monthList"][0]["days"]: # tallet i midten her er ut ifra måneden - månede 0 er nyeste.
         if j["monthDay"] == i:
             totd_uid = j["mapUid"]
 
@@ -43,7 +43,7 @@ for i in range(current_day,29,-1): # Hvilke datoer som skal skaffes
     #print(player.text)
     leaderboard_data = json.loads(player.content.decode("utf-8"))
 
-    print(f"Dato: {i}. januar")
+    print(f"Dato: {i}. februar")
     totd_records[i] = {}
 
 
@@ -66,7 +66,7 @@ for i in range(current_day,29,-1): # Hvilke datoer som skal skaffes
 
         time.sleep(1)
     
-    db.reference(f"/crashmania-totd/1").update({f"{i}":f"{totd_records[i]}"})
+    db.reference(f"/crashmania-totd/2").update({f"{i}":f"{totd_records[i]}"})
     time.sleep(2)
 
 

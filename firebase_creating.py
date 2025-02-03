@@ -11,7 +11,7 @@ ref = db.reference("/")
 
 #for i in range(1,13): # Lage alle 12 månedene
     #db.reference("/crashmania-totd").set({f"{i}":True})
-    #db.reference(f"/{i}").delete()
+    ##db.reference(f"/{i}").delete()
 
 #for i in range(1,32): # Lage 31 dager i januar
 #    db.reference("/1").set({f"{i}":True})
